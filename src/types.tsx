@@ -51,3 +51,16 @@ export const paymentFormSchema = z.object({
 });
 
 export type PaymentFormInputs = z.infer<typeof paymentFormSchema>;
+
+
+
+export type CartStoreStateType ={
+  cart: CartItemsType
+}
+
+export type CartStoreActionsType ={
+  addToCart: (product:ProductType)=> void,
+  removeFromCart: (product:ProductType)=> void,
+  clearCart: ()=> void,
+
+}

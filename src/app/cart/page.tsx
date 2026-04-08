@@ -174,7 +174,7 @@ const CartPage = () => {
               </p>
             </div>
           </div>
-          {activeStep === 1 || (
+          {activeStep === 1 && (
             <button
               onClick={() => router.push('/cart?step=2', { scroll: false })}
               className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300  text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">

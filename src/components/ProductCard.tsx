@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
+import useCartStore from '@/stores/cartStore';
+import { toast } from 'react-toastify';
 
 export const ProductCard = ({ product }: { product: ProductType }) => {
   const [productTypes, setProductTypes] = useState({
@@ -12,12 +14,24 @@ export const ProductCard = ({ product }: { product: ProductType }) => {
     color: product.colors[0],
   });
 
+  const {addToCart} = useCartStore()
+
   const handleProductType = ({ type, value }: { type: 'size' | 'color'; value: string }) => {
     setProductTypes((prev) => ({
       ...prev,
       [type]: value,
     }));
   };
+
+const handleAddToCart = ()=>{
+  addToCart({
+    ...product,
+    quantity:1,
+    selectedSize: productTypes.size,
+    selectedColor: productTypes.color,
+  })
+  toast.success('Product added to cart');
+}
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
       {/* Image */}
@@ -73,7 +87,7 @@ export const ProductCard = ({ product }: { product: ProductType }) => {
         {/* Price and Add to cart */}
         <div className="flex items-center justify-between">
           <p className="font-medium ">${product.price.toFixed(2)}</p>
-          <button className="flex items-center gap-2 ring-1 ring-gray-200 cursor-pointer shadow-lg rounded-md px-2 py-1 text-sm hover:text-white hover:bg-black transition-all duration-300">
+          <button onClick={handleAddToCart} className="flex items-center gap-2 ring-1 ring-gray-200 cursor-pointer shadow-lg rounded-md px-2 py-1 text-sm hover:text-white hover:bg-black transition-all duration-300">
             <ShoppingCart className="w-4 h-4" />
             Add to Cart
           </button>
