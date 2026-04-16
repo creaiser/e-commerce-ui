@@ -19,7 +19,6 @@ export type CartItemType = ProductType & {
 };
 export type CartItemsType = CartItemType[];
 
-
 export const shippingFormSchema = z.object({
   name: z.string().min(1, "Name is required!"),
   email: z.email().min(1, "Email is required!"),
@@ -34,7 +33,6 @@ export const shippingFormSchema = z.object({
 
 export type ShippingFormInputs = z.infer<typeof shippingFormSchema>;
 
-
 export const paymentFormSchema = z.object({
   cardHolder: z.string().min(1, "Card holder is required!"),
   cardNumber: z
@@ -45,22 +43,20 @@ export const paymentFormSchema = z.object({
     .string()
     .regex(
       /^(0[1-9]|1[0-2])\/\d{2}$/,
-      "Expiration date must be in MM/YY format!"
+      "Expiration date must be in MM/YY format!",
     ),
   cvv: z.string().min(3, "CVV is required!").max(3, "CVV is required!"),
 });
 
 export type PaymentFormInputs = z.infer<typeof paymentFormSchema>;
 
+export type CartStoreStateType = {
+  cart: CartItemsType;
+  hasHydrated: boolean;
+};
 
-
-export type CartStoreStateType ={
-  cart: CartItemsType
-}
-
-export type CartStoreActionsType ={
-  addToCart: (product:ProductType)=> void,
-  removeFromCart: (product:ProductType)=> void,
-  clearCart: ()=> void,
-
-}
+export type CartStoreActionsType = {
+  addToCart: (product: CartItemType) => void;
+  removeFromCart: (product: CartItemType) => void;
+  clearCart: () => void;
+};

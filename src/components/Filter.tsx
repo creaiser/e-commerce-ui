@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const Filter = () => {
   const searchParams = useSearchParams();
@@ -9,7 +9,7 @@ export const Filter = () => {
 
   const handleFilter = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set('sort', value);
+    params.set("sort", value);
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
   return (
@@ -19,7 +19,8 @@ export const Filter = () => {
         name="sort"
         id="sort"
         className="ring-1 ring-gray-200 shadow-md p-1 rounded-sm"
-        onChange={(e) => handleFilter(e.target.value)}>
+        onChange={(e) => handleFilter(e.target.value)}
+      >
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
         <option value="asc">Price: Low to High</option>

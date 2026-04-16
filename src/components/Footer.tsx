@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -7,7 +7,9 @@ export const Footer = () => {
       <div className="flex flex-col gap-4 items-center md:items-start">
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" width={36} height={36} alt="logo" />
-          <p className="hidden md:block text-md font-medium tracking-wider text-white">MOLATURA</p>
+          <p className="hidden md:block text-md font-medium tracking-wider text-white">
+            MOLATURA
+          </p>
         </Link>
         <p className="text-sm text-gray-400">© 2025 Molatura.</p>
         <p className="text-sm text-gray-400">All rights reserved.</p>

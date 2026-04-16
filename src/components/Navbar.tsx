@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { SearchBar } from './SearchBar';
-import { Bell, Home, ShoppingCart } from 'lucide-react';
-import { ShoppingCartIcon } from './ShoppingCartIcon';
+import Link from "next/link";
+import Image from "next/image";
+import { SearchBar } from "./SearchBar";
+import { Bell, Home, ShoppingCart } from "lucide-react";
+import { ShoppingCartIcon } from "./ShoppingCartIcon";
 
 export const Navbar = () => {
   return (
@@ -16,7 +16,9 @@ export const Navbar = () => {
           alt="logo"
           className="w-6 h-6 md:w-9 md:h-9"
         />
-        <p className="hidden md:block text-md font-medium tracking-wider">MOLATURA</p>
+        <p className="hidden md:block text-md font-medium tracking-wider">
+          MOLATURA
+        </p>
       </Link>
 
       {/* RIGHT*/}

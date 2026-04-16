@@ -1,7 +1,11 @@
-import Image from 'next/image';
-import { ProductList } from '@/components/ProductList';
+import Image from "next/image";
+import { ProductList } from "@/components/ProductList";
 
-const Homepage = async ({ searchParams }: { searchParams: Promise<{ category: string }> }) => {
+const Homepage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ category: string }>;
+}) => {
   const category = (await searchParams).category;
   return (
     <div className="">
