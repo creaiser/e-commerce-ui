@@ -23,7 +23,7 @@ const product: ProductType = {
 export const generateMetadata = async ({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) => {
   return {
     title: product.name,
